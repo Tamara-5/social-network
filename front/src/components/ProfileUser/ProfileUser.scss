@@ -1,0 +1,265 @@
+@import '../../assets/scss/_mixins.scss';
+@import '../../assets/scss/_variables.scss';
+
+.profile-user-page {
+  .profile-user-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+
+    >div {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-right: 15px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .author-name-and-card-details {
+    width: 700px;
+    .author-name {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .account-user-profile {
+        position: relative;
+        border: 1px solid #000;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom:10px ;
+        img {
+          height: 300px;
+          width: 700px;
+          object-fit: cover;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        div {
+          color: rgb(22, 24, 35);
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 25px;
+          display: inline-block;
+          margin-right: 4px;
+
+          @include sm {
+            font-size: 14px;
+          }
+          p{
+            margin-bottom: 10px;
+          }
+        }
+
+        span {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          display: inline-block;
+          line-height: 28px;
+
+          @include xs {
+            width: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .account-popup-profile {
+          display: none;
+          width: 100%;
+          position: absolute;
+          top: 30px;
+          right: -150px;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 22px;
+          padding: 8px 14px;
+          margin: 0px;
+          min-width: 280px;
+          list-style: none;
+          background: rgb(255, 255, 255);
+          border-radius: 8px;
+          box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+          z-index: 1;
+
+          &::before {
+            content: "";
+            width: 15px;
+            height: 15px;
+          }
+
+          .img-follow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img {
+              width: 45px;
+              height: 45px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+
+            button {
+              background: transparent;
+              padding: 7px 17px;
+              color: $primaryColor;
+              font-weight: 300;
+              font-size: 15px;
+            }
+          }
+
+          .title {
+            margin-top: 10px;
+
+            h3 {
+              font-size: 18px;
+            }
+
+            p {
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 15px;
+              line-height: 28px;
+            }
+          }
+
+          .followers {
+            display: flex;
+            align-items: center;
+
+            .followers-items {
+              margin-left: 10px;
+            }
+
+            .followers-count {
+              font-weight: 600;
+              font-size: 19px;
+            }
+
+            .followers-name {
+              margin-left: 9px;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 22px;
+            }
+          }
+        }
+
+        &:hover {
+          .account-popup-profile {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .card-description {
+      font-size: 16px;
+      line-height: 22px;
+      color: rgb(22, 24, 35);
+
+      @include sm {
+        font-size: 14px;
+        width: 230px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      @include xs {
+        width: 55px;
+      }
+    }
+
+    .card-video-container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-gap: 20px;
+      align-items: flex-end;
+      margin-top: 10px;
+
+      >div:nth-of-type(1) {
+        cursor: pointer;
+
+        video {
+          border-radius: 8px;
+          width: 100%;
+          height: 100%;
+          max-height: 500px;
+          max-width: 500px;
+          object-fit: cover;
+
+          #video-controls {
+            opacity: 0;
+          }
+
+          &:hover {
+            #video-controls {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .card-video-actions {
+        >div {
+          .action-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(22, 24, 35, 0.06);
+            margin-top: 8px;
+            margin-bottom: 6px;
+            transition: all ease-in-out 200ms;
+            cursor: pointer;
+
+            &:hover {
+              background-color: rgba(22, 24, 35, .1);
+            }
+
+            svg.liked {
+              fill: $primaryColor;
+            }
+
+            @include sm {
+              width: 30px;
+              height: 30px;
+
+              svg {
+                width: 14px;
+                height: 14px;
+              }
+            }
+          }
+
+          p {
+            color: rgba(22, 24, 35, 0.75);
+            font-size: 12px;
+            line-height: 17px;
+            text-align: center;
+          }
+        }
+      }
+
+      @include sm {
+        grid-gap: 10px;
+        margin-left: -60px;
+        margin-top: 15px;
+      }
+    }
+  }
+}

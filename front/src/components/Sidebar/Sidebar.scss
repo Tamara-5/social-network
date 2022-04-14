@@ -1,0 +1,79 @@
+@import  '../../assets/scss/_mixins.scss';
+@import  '../../assets/scss/_variables.scss';
+
+.sidebar {
+  position: sticky;
+  top: 62px;
+  padding: 24px 0px;
+  height: calc(100vh - 62px);
+  .submenu {
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: 0px 1px 0 rgba(0, 0, 0, 0.12);
+    padding: 0 0 8px;
+    > a {
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      color:rgba(22, 24, 35, 1.0);
+      padding: 8px 0;
+      transition: background ease-in-out 300ms;
+      &.active {
+        h3 {
+          color: $primaryColor;
+        }
+        svg {
+          fill: $primaryColor;
+          path {
+            fill: $primaryColor;
+          }
+        }
+      }
+      &:hover {
+        background: rgba(22, 24, 35, 0.03);
+      }
+      > h3 {
+        margin-left: 8px;
+        @include lg {
+          display: none;
+        }
+      }
+    }
+    @include lg {
+      justify-items: center;
+    }
+  }
+  .sidebar-login {
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: 0px 1px 0 rgba(0, 0, 0, 0.12);
+    padding: 20px 0 24px;
+    p {
+      color: rgba(22, 24, 35, 0.5);
+      font-size: 16px;
+      line-height: 22px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 13px 25px;
+    }
+    @include lg {
+      display: none;
+    }
+  }
+  .copyright {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+    display: inline-block;
+    margin-top: auto;
+    @include lg {
+      display: none;
+    }
+  }
+  @include lg {
+    padding: 12px 0;
+    border-right: 1px solid rgba(22, 24, 35, 0.12);
+  }
+}
